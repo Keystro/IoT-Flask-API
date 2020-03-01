@@ -6,6 +6,6 @@ main = Blueprint('main',__name__)
 
 @main.route('/data')
 def data():
-  devices = Vault.query.all()
-  return render_template('index.html', devices=devices ,title = 'Data')
+  #devices = Vault.query.all()
+  return render_template('main.html' ,title = 'Data')
 

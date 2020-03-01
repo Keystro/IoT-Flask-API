@@ -18,13 +18,18 @@ def create_app(config_class = Config):
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    db.init_app(app)
+    with app.app_context():
+        db.init_app(app)
+        #db.create_all()
+
     bcrypt.init_app(app)
     login_manager.init_app(app)
 
     from api.users.routes import users
     from api.main.routes import main
+    from api.errors.handlers import errors
     app.register_blueprint(main)
     app.register_blueprint(users)
+    app.register_blueprint(errors)
 
     return app

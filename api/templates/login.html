@@ -4,41 +4,39 @@
     <div>
         <form class="login-form" method="POST" action="">
             {{ form.hidden_tag() }}
-            <fieldset >
                 <legend class="login">
                     Login
                 </legend>
                 <div class="username">
                     {{ form.username.label() }}
                     {% if form.username.errors %}
-                        {{ form.username() }}
+                        {{ form.username(class="inputs") }}
                         <div>
                             {% for error in form.username.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.username() }}
+                        {{ form.username(class="inputs") }}
                     {% endif %}
                 </div>
                 <div class="password">
                     {{ form.password.label() }}
                     {% if form.password.errors %}
-                        {{ form.password() }}
+                        {{ form.password(class="inputs") }}
                         <div>
                             {% for error in form.password.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.password() }}
+                        {{ form.password(class="inputs") }}
                     {% endif %}
                 </div>
                 <div class="form-check">
                     {{ form.remember(class="form-check-input") }}
                     {{ form.remember.label(class="form-check-label") }}
                 </div>
-            </fieldset>
             <div >
             {{ form.submit(class="btn") }}
             </div>
